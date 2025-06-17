@@ -1,3 +1,4 @@
+console.log("🌸 chat.js 起動しました");
 const form = document.getElementById('chat-form');
 const input = document.getElementById('user-input');
 const messages = document.getElementById('messages');
