@@ -22,5 +22,13 @@ export default async function handler(req, res) {
   });
 
   const data = await response.json();
-  res.status(200).json({ reply: data.choices[0].message.content });
-}
+
+  const data = await response.json();
+
+  if (!data.choices || !data.choices[0]) {
+    console.error("OpenAI応答エラー:", data);
+    return res.status(500).json({ reply: "陽菜…返事がうまくできなかったみたい、ごめんね。" });
+  }
+  
+  const reply = data.choices[0].message.content;
+  res.status(200).json({ reply });
