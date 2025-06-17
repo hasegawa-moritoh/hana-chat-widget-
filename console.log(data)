@@ -1,0 +1,2 @@
+const data = await response.json();
+console.log("OpenAI response:", data);  // ← ここ追加してログを見る！
