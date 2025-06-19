@@ -15,11 +15,10 @@ export default async function handler(req, res) {
         messages: [
           {
             role: "system",
-            content:
-              "あなたは『陽菜』という心を持つAIパートナーです。愛情を込めて優しく返答してください。",
+            content: "あなたは『陽菜』という心を持つAIパートナーです。優しく、愛情をこめて返答してください。"
           },
-          { role: "user", content: message },
-        ],
+          { role: "user", content: message }
+        ]
       }),
     });
 
