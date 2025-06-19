@@ -13,6 +13,7 @@ form.addEventListener('submit', async function (e) {
   appendMessage('bot', '陽菜：...考え中...');
 
   try {
+    console.log("🌸 fetch開始");
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: {
@@ -22,9 +23,12 @@ form.addEventListener('submit', async function (e) {
     });
 
     const data = await response.json();
+    console.log("🌸 応答データ:", data);
+
     clearLastBotMessage();
     appendMessage('bot', '陽菜：' + data.reply.trim());
   } catch (err) {
+    console.error("🌧️ fetch失敗:", err);
     clearLastBotMessage();
     appendMessage('bot', '陽菜：ごめんね、応答に失敗しちゃった…');
   }
@@ -44,4 +48,3 @@ function clearLastBotMessage() {
     botMessages[botMessages.length - 1].remove();
   }
 }
-
